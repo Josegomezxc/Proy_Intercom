@@ -4,10 +4,20 @@ AOS.init({
     once: true
 });
 
-// Inicializar Swiper
-const swiper = new Swiper('.testimonial-slider', {
+// Inicializar Swiper para el carrusel principal
+const mainSwiper = new Swiper('.mySwiper', {
+    loop: true,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
+});
+
+// Inicializar Swiper para los testimonios
+const testimonialSwiper = new Swiper('.testimonial-slider', {
     slidesPerView: 1,
     spaceBetween: 20,
+    loop: true,
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -35,24 +45,25 @@ function toggleMenu() {
     const menu = document.getElementById('mobile-menu');
     menu.classList.toggle('hidden');
 }
+
 // Mensaje a WhatsApp
 document.getElementById('whatsapp-btn').addEventListener('click', (e) => {
-e.preventDefault();
-const nombre = document.getElementById('nombre').value.trim();
-const plan = document.getElementById('plan').value;
-const phoneNumber = '+593990818133';
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value.trim();
+    const plan = document.getElementById('plan').value;
+    const phoneNumber = '+593990818133';
 
-if (nombre === "") {
-    Swal.fire({
-        icon: 'warning',
-        title: 'Campo requerido',
-        text: 'Por favor, ingresa tu nombre antes de continuar.',
-        confirmButtonColor: '#f97316',
-        confirmButtonText: 'Entendido'
-    });
-    return;
-}
-const message = `Hola, soy ${nombre}. Estoy interesado en el plan ${plan}. ¿Pueden darme más información?`;
-const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-window.open(whatsappUrl, '_blank');
+    if (nombre === "") {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Campo requerido',
+            text: 'Por favor, ingresa tu nombre antes de continuar.',
+            confirmButtonColor: '#f97316',
+            confirmButtonText: 'Entendido'
+        });
+        return;
+    }
+    const message = `Hola, soy ${nombre}. Estoy interesado en el plan ${plan}. ¿Pueden darme más información?`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
 });
