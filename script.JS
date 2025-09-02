@@ -57,7 +57,6 @@ const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mess
 window.open(whatsappUrl, '_blank');
 });
 
-// Inicializar Swiper para el carrusel de la sección de inicio
 const heroSwiper = new Swiper('.mySwiper', {
     loop: true,
     autoplay: {
