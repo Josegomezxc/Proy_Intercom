@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }
 .hero-bg {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/carrusel_2.png') no-repeat center;
@@ -64,3 +65,15 @@ body {
     }
 }
 
+@media (max-width: 640px) {
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+@media (max-width: 640px) {
+    footer {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+}
