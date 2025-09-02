@@ -47,8 +47,8 @@ body {
 }
 
 .scroll-button-whatsapp img {
-    width: 15rem;
-    height: 7rem;
+    width: 10rem;
+    height: 5rem;
     display: block;
     animation: pulse 1.5s infinite;
 }
