@@ -56,3 +56,4 @@ const message = `Hola, soy ${nombre}. Estoy interesado en el plan ${plan}. ¿Pue
 const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 window.open(whatsappUrl, '_blank');
 });
+
