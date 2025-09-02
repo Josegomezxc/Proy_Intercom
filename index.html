@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Intercom: Internet de alta velocidad para tu hogar o empresa. Planes personalizados, soporte 24/7 y tecnología de punta.">
+    <meta name="keywords" content="internet, alta velocidad, fibra óptica, planes de internet, Intercom">
+    <meta name="author" content="Intercom">
+    <title>Intercom | Internet Rápido y Confiable</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Swiper.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-gray-900 text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">Intercom</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#inicio" class="hover:text-orange-500 transition">Inicio</a>
+                <a href="#planes" class="hover:text-orange-500 transition">Planes</a>
+                <a href="#beneficios" class="hover:text-orange-500 transition">Beneficios</a>
+                <a href="#testimonios" class="hover:text-orange-500 transition">Testimonios</a>
+                <a href="#faq" class="hover:text-orange-500 transition">Preguntas Frecuentes</a>
+                <a href="#contacto" class="hover:text-orange-500 transition">Contacto</a>
+            </div>
+            <button class="md:hidden text-2xl" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 text-white flex flex-col items-center space-y-4 py-4">
+            <a href="#inicio" class="hover:text-orange-500 transition">Inicio</a>
+            <a href="#planes" class="hover:text-orange-500 transition">Planes</a>
+            <a href="#beneficios" class="hover:text-orange-500 transition">Beneficios</a>
+            <a href="#testimonios" class="hover:text-orange-500 transition">Testimonios</a>
+            <a href="#faq" class="hover:text-orange-500 transition">Preguntas Frecuentes</a>
+            <a href="#contacto" class="hover:text-orange-500 transition">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-bg text-white text-center py-32" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">INTERCOM: Más que Internet</h1>
+            <p class="text-lg md:text-xl mb-6">Internet de alta velocidad que se ajusta a tus necesidades, con soporte 24/7 y tecnología de punta.</p>
+            <a href="#planes" class="bg-orange-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-orange-600 transition">Elige tu plan</a>
+        </div>
+    </section>
+
+    <!-- Planes Section -->
+    <section id="planes" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">Elige el plan perfecto para ti</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Plan 1 -->
+                <div class="plan-card bg-gray-50 p-6 rounded-lg shadow-lg text-center" data-aos="zoom-in">
+                    <h3 class="text-2xl font-semibold mb-2">Básico</h3>
+                    <p class="text-gray-600 text-lg">50 Mbps</p>
+                    <h4 class="text-3xl font-bold text-orange-500 my-4">$20/mes</h4>
+                    <ul class="text-gray-700 space-y-2 mb-6">
+                        <li><i class="fas fa-check text-orange-500"></i> Internet ilimitado</li>
+                        <li><i class="fas fa-check text-orange-500"></i> Sin contrato forzoso</li>
+                        <li><i class="fas fa-check text-orange-500"></i> Soporte técnico 24/7</li>
+                        <li><i class="fas fa-check text-orange-500"></i> Instalación gratuita</li>
+                    </ul>
+                    <a href="#contacto" class="bg-orange-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-orange-600 transition whitespace-nowrap min-w-[160px] inline-block text-center">Contratar ahora</a>
+                </div>
+                <!-- Plan 2 -->
+                <div class="plan-card bg-gray-50 p-6 rounded-lg shadow-lg text-center" data-aos="zoom-in" data-aos-delay="100">
+                    <h3 class="text-2xl font-semibold mb-2">Avanzado</h3>
+                    <p class="text-gray-600 text-lg">100 Mbps</p>
+                    <h4 class="text-3xl font-bold text-orange-500 my-4">$35/mes</h4>
+                    <ul class="text-gray-700 space-y-2 mb-6">
+                        <li><i class="fas fa-check text-orange-500"></i> Internet ilimitado</li>
+                        <li><i class="fas fa-check text-orange-500"></i> Sin contrato forzoso</li>
+                        <li><i class="fas fa-check text-orange-500"></i> Soporte técnico 24/7</li>
+                        <li><i class="fas fa-check text-orange-500"></i> Router Wi-Fi 6 incluido</li>
+                    </ul>
+                    <a href="#contacto" class="bg-orange-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-orange-600 transition whitespace-nowrap min-w-[160px] inline-block text-center">Contratar ahora</a>
+                </div>
+                <!-- Plan 3 -->
+                <div class="plan-card bg-gray-50 p-6 rounded-lg shadow-lg text-center" data-aos="zoom-in" data-aos-delay="200">
+                    <h3 class="text-2xl font-semibold mb-2">Pro</h3>
+                    <p class="text-gray-600 text-lg">200 Mbps</p>
+                    <h4 class="text-3xl font-bold text-orange-500 my-4">$50/mes</h4>
+                    <ul class="text-gray-700 space-y-2 mb-6">
+                        <li><i class="fas fa-check text-orange-500"></i> Internet ilimitado</li>
+                        <li><i class="fas fa-check text-orange-500"></i> Sin contrato forzoso</li>
+                        <li><i class="fas fa-check text-orange-500"></i> Soporte técnico prioritario</li>
+                        <li><i class="fas fa-check text-orange-500"></i> IP fija + Router Wi-Fi 6</li>
+                    </ul>
+                    <a href="#contacto" class="bg-orange-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-orange-600 transition whitespace-nowrap min-w-[160px] inline-block text-center">Contratar ahora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios Section -->
+    <section id="beneficios" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">Por qué elegir Intercom</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-rocket text-5xl text-orange-500 mb-4"></i>
+                    <h4 class="text-xl font-semibold mb-2">Alta velocidad</h4>
+                    <p class="text-gray-600">Conexión estable y rápida para streaming, gaming y teletrabajo sin interrupciones.</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-check-circle text-5xl text-orange-500 mb-4"></i>
+                    <h4 class="text-xl font-semibold mb-2">Soporte 24/7</h4>
+                    <p class="text-gray-600">Asistencia técnica disponible en cualquier momento, incluso festivos.</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-wifi text-5xl text-orange-500 mb-4"></i>
+                    <h4 class="text-xl font-semibold mb-2">Tecnología de punta</h4>
+                    <p class="text-gray-600">Fibra óptica y routers Wi-Fi 6 para máxima cobertura y velocidad.</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-handshake text-5xl text-orange-500 mb-4"></i>
+                    <h4 class="text-xl font-semibold mb-2">Sin contratos forzosos</h4>
+                    <p class="text-gray-600">Libertad para cancelar cuando quieras, sin penalizaciones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios Section -->
+    <section id="testimonios" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">Lo que dicen nuestros clientes</h2>
+            <div class="swiper testimonial-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-card bg-gray-50 p-6 rounded-lg shadow-lg text-center max-w-md mx-auto" data-aos="fade-up">
+                            <p class="text-gray-600 mb-4">"Intercom transformó mi experiencia de internet. Ahora puedo trabajar desde casa sin interrupciones."</p>
+                            <p class="font-semibold">Ana Gómez, Emprendedora</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card bg-gray-50 p-6 rounded-lg shadow-lg text-center max-w-md mx-auto" data-aos="fade-up" data-aos-delay="100">
+                            <p class="text-gray-600 mb-4">"El plan Pro es perfecto para mi familia. Streaming y gaming sin lag, ¡100% recomendado!"</p>
+                            <p class="font-semibold">Carlos Pérez, Gamer</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card bg-gray-50 p-6 rounded-lg shadow-lg text-center max-w-md mx-auto" data-aos="fade-up" data-aos-delay="200">
+                            <p class="text-gray-600 mb-4">"El soporte técnico es increíble, resolvieron mi duda en minutos, incluso a medianoche."</p>
+                            <p class="font-semibold">Laura Martínez, Milagro</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card bg-gray-50 p-6 rounded-lg shadow-lg text-center max-w-md mx-auto" data-aos="fade-up" data-aos-delay="200">
+                            <p class="text-gray-600 mb-4">"El soporte técnico es increíble, resolvieron mi duda en minutos, incluso a medianoche."</p>
+                            <p class="font-semibold">Fernando Cherrez, Milagro</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card bg-gray-50 p-6 rounded-lg shadow-lg text-center max-w-md mx-auto" data-aos="fade-up" data-aos-delay="200">
+                            <p class="text-gray-600 mb-4">"El soporte técnico es increíble, resolvieron mi duda en minutos, incluso a medianoche."</p>
+                            <p class="font-semibold">Andres Lopez, Milagro</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination mt-4"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preguntas Frecuentes Section -->
+    <section id="faq" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">Preguntas Frecuentes</h2>
+            <div class="space-y-6 max-w-3xl mx-auto">
+                <div class="faq-item" data-aos="fade-up">
+                    <h5 class="text-xl font-semibold text-orange-500 cursor-pointer">¿Qué incluye la instalación?</h5>
+                    <p class="text-gray-600">La instalación es gratuita e incluye la configuración del router y la conexión de fibra óptica en tu hogar o empresa.</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h5 class="text-xl font-semibold text-orange-500 cursor-pointer">¿Hay contratos forzosos?</h5>
+                    <p class="text-gray-600">No, en Intercom puedes cancelar tu plan en cualquier momento sin penalizaciones.</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <h5 class="text-xl font-semibold text-orange-500 cursor-pointer">¿Qué tan rápido es el soporte técnico?</h5>
+                    <p class="text-gray-600">Nuestro equipo está disponible 24/7, con un tiempo de respuesta promedio de 5 minutos.</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <h5 class="text-xl font-semibold text-orange-500 cursor-pointer">¿Puedo cambiar de plan?</h5>
+                    <p class="text-gray-600">Sí, puedes cambiar de plan en cualquier momento sin costo adicional.</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <h5 class="text-xl font-semibold text-orange-500 cursor-pointer">¿Ofrecen servicios para empresas?</h5>
+                    <p class="text-gray-600">Sí, tenemos planes empresariales con IP fija, ancho de banda dedicado y soporte prioritario.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Contacto y Mapa -->
+    <section id="contacto" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">Contáctanos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- WhatsApp Contacto (Izquierda) -->
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="max-w-lg mx-auto">
+                        <h3 class="text-xl font-semibold mb-4">¡Contáctanos por WhatsApp!</h3>
+                        <p class="text-gray-600 mb-6">Habla con nuestro equipo ahora mismo para consultar sobre nuestros planes o resolver cualquier duda. Haz clic en el botón para iniciar una conversación.</p>
+                        <div class="grid grid-cols-1 gap-6">
+                            <div>
+                                <label for="nombre" class="block text-gray-700 font-medium">Nombre y Apellido</label>
+                                <input type="text" id="nombre" name="nombre" class="w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="Ingresa tu nombre">
+                            </div>
+                            <div>
+                                <label for="plan" class="block text-gray-700 font-medium">Plan de interés</label>
+                                <select id="plan" name="plan" class="w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+                                    <option value="basico">Básico - 50 Mbps</option>
+                                    <option value="avanzado">Avanzado - 100 Mbps</option>
+                                    <option value="pro">Pro - 200 Mbps</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="text-center mt-6">
+                            <a id="whatsapp-btn" href="#" class="bg-green-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-600 transition">Contactar por WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mapa (Derecha) -->
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-semibold mb-4 text-center md:text-left">Nuestra ubicación</h3>
+                    <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1993.5227453366956!2d-79.59689175649338!3d-2.1362290744895263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d478d33ab1dbb%3A0xe0af94a8a83bc2ab!2sGRUPO%20INTERCOM%20MILAGRO!5e0!3m2!1ses!2sec!4v1756780335528!5m2!1ses!2sec" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Intercom</h4>
+                    <p class="text-gray-400">Tu proveedor de internet de confianza, con tecnología de punta y soporte 24/7.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Enlaces útiles</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#planes" class="text-orange-500 hover:underline">Planes</a></li>
+                        <li><a href="#beneficios" class="text-orange-500 hover:underline">Beneficios</a></li>
+                        <li><a href="#faq" class="text-orange-500 hover:underline">Preguntas Frecuentes</a></li>
+                        <li><a href="#contacto" class="text-orange-500 hover:underline">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Contáctanos</h4>
+                    <p class="text-gray-400">Email: <a href="mailto:soporte@Intercom.com" class="text-orange-500 hover:underline">soporte@Intercom.com</a></p>
+                    <p class="text-gray-400">Teléfono: +123 456 7890</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-orange-500 hover:text-orange-600"><i class="fab fa-facebook-f text-2xl"></i></a>
+                        <a href="#" class="text-orange-500 hover:text-orange-600"><i class="fab fa-twitter text-2xl"></i></a>
+                        <a href="#" class="text-orange-500 hover:text-orange-600"><i class="fab fa-instagram text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8 text-gray-400">
+                <p>&copy; 2025 Intercom. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Inicializar Swiper
+        const swiper = new Swiper('.testimonial-slider', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                }
+            }
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-item h5').forEach(item => {
+            item.addEventListener('click', () => {
+                const faq = item.parentElement;
+                faq.classList.toggle('active');
+            });
+        });
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+        // Mensaje a WhatsApp
+        document.getElementById('whatsapp-btn').addEventListener('click', (e) => {
+        e.preventDefault();
+        const nombre = document.getElementById('nombre').value.trim();
+        const plan = document.getElementById('plan').value;
+        const phoneNumber = '+593990818133';
+
+        if (nombre === "") {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Campo requerido',
+                text: 'Por favor, ingresa tu nombre antes de continuar.',
+                confirmButtonColor: '#f97316',
+                confirmButtonText: 'Entendido'
+            });
+            return;
+        }
+        const message = `Hola, soy ${nombre}. Estoy interesado en el plan ${plan}. ¿Pueden darme más información?`;
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    });
+    </script>
+</body>
+</html>
