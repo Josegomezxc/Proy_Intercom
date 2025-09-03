@@ -78,3 +78,12 @@ const swiperPlanes = new Swiper('.testimonial-slider', {
         }
     }
 });
+
+document.getElementById('whatsappButton').addEventListener('click', (e) => {
+e.preventDefault();
+const phoneNumber = '+593990818133';
+
+const message = `Estimados, deseo información sobre los planes disponibles, ya que estoy interesado en contratar uno.`;
+const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+window.open(whatsappUrl, '_blank');
+});

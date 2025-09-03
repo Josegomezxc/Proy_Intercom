@@ -33,9 +33,9 @@ body {
 
 .scroll-button-whatsapp {
     position: fixed;
-    bottom: 1.5rem; /* Aumentado para un mejor espaciado */
-    right: 1.5rem; /* Aumentado para un mejor espaciado */
-    width: 175px; /* Tamaño fijo, pero más pequeño */
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 175px;
     height: 80px;
     background-color: transparent;
     border: none;
