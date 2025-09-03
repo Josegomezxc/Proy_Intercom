@@ -16,12 +16,6 @@ body {
     transform: scale(1.05);
     animation: pulse 1.5s;
 }
-.faq-item p {
-    display: none;
-}
-.faq-item.active p {
-    display: block;
-}
 .swiper-slide {
     display: flex;
     justify-content: center;
