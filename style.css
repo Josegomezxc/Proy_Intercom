@@ -12,6 +12,7 @@ body {
 }
 .plan-card:hover {
     transform: scale(1.05);
+    animation: pulse 1.5s;
 }
 .faq-item p {
     display: none;
@@ -32,30 +33,24 @@ body {
 
 .scroll-button-whatsapp {
     position: fixed;
-    bottom: 1rem !important;
-    right: 1rem;
-    width: auto;
-    height: auto;
+    bottom: 1.5rem; /* Aumentado para un mejor espaciado */
+    right: 1.5rem; /* Aumentado para un mejor espaciado */
+    width: 175px; /* Tamaño fijo, pero más pequeño */
+    height: 80px;
     background-color: transparent;
-    color: var(--white);
     border: none;
     cursor: pointer;
-    display: block;
-    padding: 0;
     z-index: 1000;
     animation: pulse 1.5s infinite;
 }
 
 .scroll-button-whatsapp img {
-    width: 10rem;
-    height: 5rem;
+    width: 100%;
+    height: 100%;
     display: block;
-    animation: pulse 1.5s infinite;
 }
 
-
 @keyframes pulse {
-
     50% {
         transform: scale(1.1);
     }

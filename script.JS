@@ -56,3 +56,25 @@ const message = `Hola, soy ${nombre}. Estoy interesado en el plan ${plan}. ¿Pue
 const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 window.open(whatsappUrl, '_blank');
 });
+
+const swiperPlanes = new Swiper('.testimonial-slider', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    breakpoints: {
+        768: {
+            slidesPerView: 2,
+        },
+        1024: {
+            slidesPerView: 3,
+        }
+    }
+});
