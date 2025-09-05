@@ -55,3 +55,11 @@ body {
     }
 }
 
+@keyframes colorSwitch {
+    0% { color: #FFFFFF; }
+    50% { color: #F97316; }
+    100% { color: #FFFFFF; }
+}
+.animate-color-switch {
+    animation: colorSwitch 1s infinite;
+}

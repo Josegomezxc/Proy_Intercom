@@ -19,13 +19,14 @@
     <!-- Swiper.js -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/blanco-02.png" type="image/png">
     <!-- Alerta de sweetalert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="bg-gray-100">
     <!-- Navbar -->
     <nav class="bg-gray-900 text-white sticky top-0 z-50 shadow-lg">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="mx-auto px-4 py-4 flex justify-between items-center w-full max-w-screen-2xl">
             <a href="#" class="text-3xl font-bold">
                 INTERCOM<span class="text-lg font-normal"> Interzun</span>
             </a>
@@ -33,22 +34,23 @@
                 <a href="#inicio" class="hover:text-orange-500 transition">Inicio</a>
                 <a href="#planes" class="hover:text-orange-500 transition">Planes</a>
                 <a href="#beneficios" class="hover:text-orange-500 transition">Beneficios</a>
-                <a href="#testimonios" class="hover:text-orange-500 transition">Testimonios</a>
+                <a href="#intercom-tv" class="text-white animate-color-switch transition-colors duration-500">App Intercon TV</a>
                 <a href="#faq" class="hover:text-orange-500 transition">Preguntas Frecuentes</a>
                 <a href="#contacto" class="hover:text-orange-500 transition">Contacto</a>
             </div>
-            <button class="md:hidden text-2xl" onclick="toggleMenu()">
+            <button class="md:hidden text-2xl focus:outline-none" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
-        <!-- Mobile Menu -->
+
+        <!-- Menu Mobile -->
         <div id="mobile-menu" class="hidden md:hidden bg-gray-800 text-white flex flex-col items-center space-y-4 py-4">
-            <a href="#inicio" class="hover:text-orange-500 transition">Inicio</a>
-            <a href="#planes" class="hover:text-orange-500 transition">Planes</a>
-            <a href="#beneficios" class="hover:text-orange-500 transition">Beneficios</a>
-            <a href="#testimonios" class="hover:text-orange-500 transition">Testimonios</a>
-            <a href="#faq" class="hover:text-orange-500 transition">Preguntas Frecuentes</a>
-            <a href="#contacto" class="hover:text-orange-500 transition">Contacto</a>
+            <a href="#inicio" class="hover:text-orange-500 transition w-full text-center py-2">Inicio</a>
+            <a href="#planes" class="hover:text-orange-500 transition w-full text-center py-2">Planes</a>
+            <a href="#beneficios" class="hover:text-orange-500 transition w-full text-center py-2">Beneficios</a>
+            <a href="#intercom-tv" class="hover:text-orange-500 transition w-full text-center py-2">App Intercon TV</a>
+            <a href="#faq" class="hover:text-orange-500 transition w-full text-center py-2">Preguntas Frecuentes</a>
+            <a href="#contacto" class="hover:text-orange-500 transition w-full text-center py-2">Contacto</a>
         </div>
     </nav>
 
@@ -59,7 +61,7 @@
                 INTERCOM <span class="text-2xl md:text-3xl font-normal">INTERZUN</span>
             </h1>
             <p class="text-lg md:text-xl mb-6">Internet de alta velocidad que se ajusta a tus necesidades, con soporte 24/7 y tecnología de punta.</p>
-            <a href="#planes" class="bg-orange-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-orange-600 transition">Elige tu plan</a>
+            <a href="#planes" class="bg-orange-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-orange-600 transition ">Elige tu plan</a>
         </div>
     </section>
 
@@ -301,7 +303,7 @@
                     <div class="flex items-start gap-4 bg-gray-50 p-5 rounded-xl shadow hover:shadow-xl transition duration-300">
                         <i class="fas fa-th-large text-orange-500 text-3xl mt-1"></i>
                         <div>
-                            <h5 class="text-lg font-semibold text-gray-900 mb-1">Más de 80 Canales</h5>
+                            <h5 class="text-lg font-semibold text-gray-900 mb-1">Más de 100 Canales</h5>
                             <p class="text-gray-600">Accede a una amplia selección de canales nacionales e internacionales, perfectos para toda la familia.</p>
                         </div>
                     </div>
@@ -331,10 +333,20 @@
                     </div>
                 </div>
 
-                <div class="flex justify-center order-1 md:order-2" data-aos="fade-right">
+                <div class="flex flex-col justify-center order-1 md:order-2" data-aos="fade-right">
                     <div class="flex justify-center md:justify-end order-1 md:order-2">
                         <img src="images/Mesa de trabajo 2.png" alt="Intercom TV" 
-                            class="w-full h-full max-w-full rounded-xl object-contain">
+                            style="width: 350px !important; height: auto !important;" class="rounded-xl object-contain">
+                    </div>
+                    <div class="flex justify-center gap-4 mt-6">
+                        <a href="https://play.google.com/store/apps/details?id=ec.intercom.tv&pcampaignid=web_share" target="_blank">
+                            <img src="images/Google_Play-Logo.wine.svg" alt="Google Play Store" 
+                                style="height: 150px !important;">
+                        </a>
+                        <a href="https://apps.apple.com/ec/app/intercom-tv/id1559719673" target="_blank">
+                            <img src="images/app_store.svg" alt="App Store" 
+                                style="height: 150px !important;">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -437,9 +449,10 @@
                             <div>
                                 <label for="plan" class="block text-gray-700 font-medium">Plan de interés</label>
                                 <select id="plan" name="plan" class="w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
-                                    <option value="basico">Básico - 50 MEGAS</option>
-                                    <option value="avanzado">Avanzado - 100 MEGAS</option>
-                                    <option value="pro">Pro - 200 MEGAS</option>
+                                    <option value="star">Star - 200 MEGAS + 1 Mes Gratis Intercom TV + Instalación Gratis</option>
+                                    <option value="super">Super - 300 MEGAS + Instalación Gratis</option>
+                                    <option value="expert">Expert - 350 MEGAS + Instalación Gratis</option>
+                                    <option value="super expert">Super Expert - 600 MEGAS + Intercom TV +  Instalación Gratis</option>
                                 </select>
                             </div>
                         </div>
