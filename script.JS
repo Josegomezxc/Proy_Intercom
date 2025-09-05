@@ -1,33 +1,8 @@
 // Inicializar AOS
 AOS.init({
     duration: 1000,
-    once: true
-});
-
-// Inicializar Swiper
-const swiper = new Swiper('.testimonial-slider', {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    breakpoints: {
-        768: {
-            slidesPerView: 1,
-        },
-        1024: {
-            slidesPerView: 3,
-        }
-    }
-});
-
-// FAQ Toggle
-document.querySelectorAll('.faq-item h5').forEach(item => {
-    item.addEventListener('click', () => {
-        const faq = item.parentElement;
-        faq.classList.toggle('active');
-    });
+    once: false,
+    mirror: true
 });
 
 // Mobile Menu Toggle
