@@ -6,7 +6,7 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 .hero-bg {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/carrusel_2.png') no-repeat center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/carrusel_4.png') no-repeat center;
     background-size: cover;
 }
 .plan-card {
@@ -62,4 +62,107 @@ body {
 }
 .animate-color-switch {
     animation: colorSwitch 1s infinite;
+}
+
+nav {
+    background-color: #1f2937;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    height: 56px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
+}
+
+nav .container {
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo img {
+    height: 40px; 
+    object-fit: contain;
+}
+
+nav .desktop-menu {
+    display: none;
+    gap: 20px; 
+    font-size: 16px;
+}
+
+nav .desktop-menu a {
+    color: #f97316;
+    transition: color 0.3s;
+}
+
+nav .desktop-menu a:hover {
+    color: white; 
+}
+
+nav .desktop-menu a.animate-color-switch {
+    transition: color 0.5s;
+}
+
+nav .mobile-button {
+    font-size: 24px; 
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+nav .mobile-menu {
+    display: none;
+    background-color: #374151; 
+    color: #f97316;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    font-size: 16px; 
+}
+
+nav .mobile-menu a {
+    color: #f97316;
+    width: 100%;
+    text-align: center;
+    padding: 6px 0; 
+    transition: color 0.3s;
+}
+
+nav .mobile-menu a:hover {
+    color: white;
+}
+
+
+@media (min-width: 768px) {
+    nav {
+        height: 80px; 
+    }
+
+    nav .logo img {
+        height: 80px; 
+    }
+
+    nav .desktop-menu {
+        display: flex;
+        gap: 28px; 
+        font-size: 18px;
+    }
+
+    nav .mobile-button {
+        display: none;
+    }
+
+    nav .mobile-menu {
+        display: none !important;
+    }
+}
+
+nav .mobile-menu.active {
+    display: flex;
 }

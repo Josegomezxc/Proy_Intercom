@@ -14,7 +14,7 @@ function toggleMenu() {
 // Permitir solo letras y espacios en el input
 document.getElementById('nombre').addEventListener('input', function () {
     this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '');
-});
+}); 
 
 // Mensaje a WhatsApp
 document.getElementById('whatsapp-btn').addEventListener('click', (e) => {
