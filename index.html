@@ -27,7 +27,7 @@
         <div class="mx-auto px-4 py-2 flex justify-between items-center w-full max-w-screen-2xl">
 
             <a href="#" class="flex items-center space-x-2">
-                <img src="images/interzum-01.png" alt="Logo" class="block h-12 w-auto object-contain" style="max-height:48px;">
+                <img src="images/interzum-01.png" alt="Logo" class="block h-12 w-auto object-contain" style="max-height:65px;">
             </a>
 
             <!-- Menú Desktop -->
@@ -59,16 +59,25 @@
     </nav>
 
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero-bg text-white text-center py-32" data-aos="fade-up">
-        <div class="container mx-auto px-4">
+    <section id="inicio" class="hero-video-container text-white text-center py-32" data-aos="fade-up">
+        <video playsinline autoplay muted loop poster="images/poster.jpg">
+            <source src="media/fondo_01.mp4" type="video/mp4">
+            Tu navegador no soporta el tag de video.
+        </video>
+
+        <div class="container mx-auto px-4 z-10 relative">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">
-                INTERCOM <span class="text-2xl md:text-3xl font-normal">INTERZUN</span>
+                <img src="images/blanco-01.png" alt="Logo intercom" style="display:block; margin:0 auto;margin-top:-55px ; max-height:200px; width:auto;">
             </h1>
-            <p class="text-lg md:text-xl mb-6">Internet de alta velocidad que se ajusta a tus necesidades, con soporte 24/7 y tecnología de punta.</p>
-            <a href="#planes" class="bg-orange-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-orange-600 transition animate-pulse">Elige tu plan</a>
+            <h1 class="text-4xl md:text-5xl font-bold mb-2">
+                La Conexión que Mereces
+            </h1>
+            <p class="text-lg md:text-xl font-light mb-8">
+                Internet de alta velocidad que se ajusta a tus necesidades, <br>con soporte 24/7 y tecnología de punta.
+            </p>
         </div>
     </section>
+
 
     <!-- Seccion de Planes -->
     <section id="planes" class="py-16 bg-white">
@@ -518,7 +527,7 @@
     <!-- Boton de whatsapp -->
     <a href="https://wa.me/593990818133" target="_blank">
         <button id="whatsappButton" class="scroll-button-whatsapp">
-            <img class="icon-img" loading="lazy" alt="WhatsApp" src="./images/was_2.png">
+            <img class="icon-img" loading="lazy" alt="WhatsApp" src="./images/was_1.png">
         </button>
     </a>
 
