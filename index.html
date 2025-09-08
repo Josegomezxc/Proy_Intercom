@@ -25,28 +25,41 @@
 </head>
 <body class="bg-gray-100">
     <!-- Navbar -->
-        <nav>
-            <div class="container"> 
-                <a href="#" class="logo"> <img src="images/interzum-01.png" alt="Logo"> </a>
-                <div class="desktop-menu"> 
-                    <a href="#inicio">Inicio</a> 
-                    <a href="#planes">Planes</a> 
-                    <a href="#beneficios">Beneficios</a> 
-                    <a href="#intercom-tv" class="animate-color-switch">App Intercon TV</a> 
-                    <a href="#faq">Preguntas Frecuentes</a>
-                    <a href="#contacto">Contacto</a>
-                </div> 
-                <button class="mobile-button" onclick="toggleMenu()"> <i class="fas fa-bars"></i> </button> 
+    <nav class="bg-gray-900 text-orange-500 sticky top-0 z-50 shadow-lg">
+        <div class="mx-auto px-4 py-2 flex justify-between items-center w-full max-w-screen-2xl">
+
+            <a href="#" class="flex items-center space-x-2">
+                <img src="images/interzum-01.png" alt="Logo" class="block h-12 w-auto object-contain" style="max-height:48px;">
+            </a>
+
+            <!-- Menú Desktop -->
+            <div class="hidden md:flex space-x-6">
+                <a href="#inicio" class="hover:text-white transition">Inicio</a>
+                <a href="#planes" class="hover:text-white transition">Planes</a>
+                <a href="#beneficios" class="hover:text-white transition">Beneficios</a>
+                <a href="#intercom-tv" class="text-white animate-color-switch transition-colors duration-500">App Intercon TV</a>
+                <a href="#faq" class="hover:text-white transition">Preguntas Frecuentes</a>
+                <a href="#contacto" class="hover:text-white transition">Contacto</a>
             </div>
-            <div id="mobile-menu" class="mobile-menu"> 
-                <a href="#inicio">Inicio</a> 
-                <a href="#planes">Planes</a> 
-                <a href="#beneficios">Beneficios</a> 
-                <a href="#intercom-tv">App Intercon TV</a> 
-                <a href="#faq">Preguntas Frecuentes</a> 
-                <a href="#contacto">Contacto</a> 
-            </div> 
-        </nav>
+
+            <!-- Botón Menú Mobile -->
+            <button class="md:hidden text-2xl focus:outline-none hover:text-orange-500" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+
+        </div>
+
+        <!-- Menú Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 text-orange-500 flex flex-col items-center space-y-4 py-4">
+            <a href="#inicio" class="hover:text-white transition w-full text-center py-2" onclick="toggleMenu()">Inicio</a>
+            <a href="#planes" class="hover:text-white transition w-full text-center py-2" onclick="toggleMenu()">Planes</a>
+            <a href="#beneficios" class="hover:text-white transition w-full text-center py-2" onclick="toggleMenu()">Beneficios</a>
+            <a href="#intercom-tv" class="text-white animate-color-switch transition-colors duration-500" onclick="toggleMenu()">App Intercon TV</a>
+            <a href="#faq" class="hover:text-white transition w-full text-center py-2" onclick="toggleMenu()">Preguntas Frecuentes</a>
+            <a href="#contacto" class="hover:text-white transition w-full text-center py-2" onclick="toggleMenu()">Contacto</a>
+        </div>
+    </nav>
+
 
     <!-- Hero Section -->
     <section id="inicio" class="hero-bg text-white text-center py-32" data-aos="fade-up">
