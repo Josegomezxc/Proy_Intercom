@@ -136,3 +136,5 @@ function scrollToTop() {
 
 window.addEventListener('scroll', checkScroll);
 window.addEventListener('load', checkScroll);
+
+
