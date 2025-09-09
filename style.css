@@ -125,20 +125,79 @@ body {
         transform: translateY(0);
     }
 }
-.btn-scroll {
-	position: fixed;
-	z-index: 999;
-	bottom: 95px;
-	right: 20px;
-	animation: pulse-up 0.6s infinite ease-in-out;
-	opacity: 0;
-	visibility: hidden;
-	transition: opacity 0.5s ease, visibility 0.5s ease;
+.button {
+    position: fixed;
+    z-index: 999;
+    bottom: 95px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(255, 145, 0);
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    animation: pulse-up 0.6s infinite ease-in-out;
+    opacity: 0;
+    
 }
-.btn-scroll.show-btn {
+
+.button.show-btn {
     opacity: 1;
     visibility: visible;
 }
-.btn-scroll img {
-    border-radius: 50%;
+
+.svgIcon {
+    width: 12px;
+    transition-duration: 0.3s;
+}
+
+.svgIcon path {
+    fill: white;
+}
+
+/* Animación para el menú deslizante */
+.slide-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 280px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.slide-menu.active {
+    transform: translateX(0);
+}
+
+/* Overlay para cerrar el menú */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 55;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-icon {
+    margin-right: 10px !important;
+    display: inline-block;
+    width: 20px;
+    text-align: center;
 }
