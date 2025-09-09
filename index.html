@@ -43,7 +43,7 @@
             <!-- Botón Menú Mobile -->
             <button class="md:hidden text-2xl focus:outline-none hover:text-orange-500" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
-            </button>
+            </button>   
 
         </div>
 
@@ -58,16 +58,13 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-image-container text-white text-center py-32" data-aos="fade-up">
+        <img src="images/carrusel_4.png" alt="Hero background" class="background-image">
 
-    <section id="inicio" class="hero-video-container text-white text-center py-32" data-aos="fade-up">
-        <video playsinline autoplay muted loop poster="images/poster.jpg">
-            <source src="media/fondo_01.mp4" type="video/mp4">
-            Tu navegador no soporta el tag de video.
-        </video>
-
-        <div class="container mx-auto px-4 z-10 relative">
+        <div class="container mx-auto px-4">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">
-                <img src="images/blanco-01.png" alt="Logo intercom" style="display:block; margin:0 auto;margin-top:-55px ; max-height:200px; width:auto;">
+                <img src="images/blanco-01.png" alt="Logo intercom" style="display:block; margin:0 auto; margin-top:-55px; max-height:200px; width:auto;">
             </h1>
             <h1 class="text-4xl md:text-5xl font-bold mb-2">
                 La Conexión que Mereces
@@ -349,8 +346,8 @@
 
                 <div class="flex flex-col justify-center order-1 md:order-2" data-aos="fade-right">
                     <div class="flex justify-center md:justify-end order-1 md:order-2">
-                        <img src="images/Mesa de trabajo 2.png" alt="Intercom TV" 
-                            style="width: 350px !important; height: auto !important;" class="rounded-xl object-contain">
+                        <img src="images/intercom_tv.webp" alt="Intercom TV" 
+                            style="width: 450px !important; height: auto !important;" class="rounded-xl object-contain">
                     </div>
                     <div class="flex justify-center gap-4 mt-6">
                         <a href="https://play.google.com/store/apps/details?id=ec.intercom.mobile" target="_blank">
@@ -358,8 +355,7 @@
                                 style="height: 150px !important;">
                         </a>
                         <a href="https://apps.apple.com/ec/app/intercom-tv/id1559719673" target="_blank">
-                            <img src="images/app_store.svg" alt="App Store" 
-                                style="height: 150px !important;">
+                            <img src="images/app_store.svg" alt="App Store" style="height: 150px !important;">
                         </a>
                     </div>
                 </div>
@@ -524,13 +520,17 @@
             </div>
         </div>
     </footer>
-    <!-- Boton de whatsapp -->
-    <a href="https://wa.me/593990818133" target="_blank">
-        <button id="whatsappButton" class="scroll-button-whatsapp">
-            <img class="icon-img" loading="lazy" alt="WhatsApp" src="./images/was_1.png">
-        </button>
+
+    <!-- Boton de scroll -->
+    <a href="#inicio" class="btn-scroll">
+        <img src="images/flecha_scroll.webp" width="55" height="55" alt="Botón scroll">
     </a>
 
+    <!-- Boton de whatsapp -->
+    <a href="https://wa.me/593990818133" class="btn-whatsapp">
+        <img src="images/icon-whatsapp.svg" alt="Contacto por whatsapp">
+    </a>
+    
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>

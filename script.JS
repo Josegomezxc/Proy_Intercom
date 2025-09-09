@@ -16,7 +16,7 @@ document.getElementById('nombre').addEventListener('input', function () {
     this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '');
 }); 
 
-// Mensaje a WhatsApp
+// Mensaje a WhatsApp de contacto
 document.getElementById('whatsapp-btn').addEventListener('click', (e) => {
 e.preventDefault();
 const nombre = document.getElementById('nombre').value.trim();
@@ -38,6 +38,7 @@ const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mess
 window.open(whatsappUrl, '_blank');
 });
 
+// carrusel de palnes
 const swiperPlanes = new Swiper('.testimonial-slider', {
     slidesPerView: 1,
     spaceBetween: 20,
@@ -60,11 +61,24 @@ const swiperPlanes = new Swiper('.testimonial-slider', {
     }
 });
 
-document.getElementById('whatsappButton').addEventListener('click', (e) => {
-e.preventDefault();
-const phoneNumber = '+593990818133';
-
-const message = `Estimados, deseo información sobre los planes disponibles, ya que estoy interesado en contratar uno.`;
-const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-window.open(whatsappUrl, '_blank');
+// boton de whatsapp flotante
+document.querySelector('.btn-whatsapp').addEventListener('click', (e) => {
+    e.preventDefault();
+    const phoneNumber = '+593990818133';
+    const message = `Estimados, deseo información sobre los planes disponibles, ya que estoy interesado en contratar uno.`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
 });
+
+// scroll para subir hasta el inicio
+window.addEventListener('scroll', function() {
+        const button = document.querySelector('.btn-scroll');
+        const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+        const showThreshold = 200;
+
+        if (scrollPosition > showThreshold) {
+            button.classList.add('show-btn');
+        } else {
+            button.classList.remove('show-btn');
+        }
+    });
