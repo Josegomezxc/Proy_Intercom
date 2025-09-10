@@ -138,3 +138,83 @@ window.addEventListener('scroll', checkScroll);
 window.addEventListener('load', checkScroll);
 
 
+
+document.addEventListener("DOMContentLoaded", function () {
+        const banner = document.getElementById("cookie-banner");
+        const acceptBtn = document.getElementById("accept-cookies");
+        const rejectBtn = document.getElementById("reject-cookies");
+        const closeBanner = document.getElementById("close-banner");
+        const modal = document.getElementById("cookie-modal");
+        const closeModal = document.getElementById("close-modal");
+        const link = document.getElementById("cookies-link");
+
+        // Función para mostrar una notificación
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            // Muestra la notificación con un pequeño retraso para la transición
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 10);
+
+            // Oculta y elimina la notificación después de 3 segundos
+            setTimeout(() => {
+                notification.style.right = '-320px';
+                setTimeout(() => notification.remove(), 400);
+            }, 3000);
+        }
+
+        // Lógica principal: Comprueba si ya existe una elección de cookies
+        const userChoice = localStorage.getItem("cookies-choice");
+
+        if (userChoice !== "accepted") {
+            // Si el usuario no ha aceptado, muestra el banner con animación
+            setTimeout(() => {
+                banner.style.transform = "translateY(0)";
+            }, 500);
+        } else {
+            // Si el usuario ya aceptó, oculta el banner inmediatamente
+            banner.style.display = "none";
+        }
+
+        // Evento para el botón Aceptar
+        acceptBtn.addEventListener("click", () => {
+            localStorage.setItem("cookies-choice", "accepted");
+            banner.style.transform = "translateY(100%)";
+            setTimeout(() => banner.style.display = "none", 500);
+            showNotification('¡Gracias! Has aceptado el uso de cookies.');
+        });
+
+        // Evento para el botón Rechazar
+        rejectBtn.addEventListener("click", () => {
+            localStorage.setItem("cookies-choice", "rejected");
+            banner.style.transform = "translateY(100%)";
+            setTimeout(() => banner.style.display = "none", 500);
+            showNotification('Has rechazado las cookies opcionales.', 'info');
+        });
+
+        // Evento para el botón de cerrar banner
+        closeBanner.addEventListener("click", () => {
+            banner.style.transform = "translateY(100%)";
+            setTimeout(() => banner.style.display = "none", 500);
+        });
+
+        // Eventos para el modal de políticas
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            modal.style.display = "flex";
+        });
+
+        closeModal.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        // Cerrar modal al hacer clic fuera
+        modal.addEventListener("click", (e) => {
+            if(e.target === modal) modal.style.display = "none";
+        });
+    });
+
