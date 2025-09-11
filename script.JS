@@ -284,7 +284,19 @@ function initializeChatbot(data) {
     function showTypingBubble() {
         const typingElement = document.createElement('div');
         typingElement.classList.add('chat-message', 'typing');
-        typingElement.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+        
+        // Añadir imagen del bot
+        const imgElement = document.createElement('img');
+        imgElement.src = config.botImage || 'images/bot.webp';
+        imgElement.alt = 'Bot Icon';
+        
+        // Añadir puntos de "escribiendo"
+        const dotsElement = document.createElement('div');
+        dotsElement.classList.add('typing-dots');
+        dotsElement.innerHTML = '<span></span><span></span><span></span>';
+        
+        typingElement.appendChild(imgElement);
+        typingElement.appendChild(dotsElement);
         modalBody.appendChild(typingElement);
         return typingElement;
     }
@@ -293,12 +305,25 @@ function initializeChatbot(data) {
     function typeResponse(message, callback) {
         const messageElement = document.createElement('div');
         messageElement.classList.add('chat-message', 'bot');
+        
+        // Crear contenedor para la imagen
+        const imgElement = document.createElement('img');
+        imgElement.src = config.botImage; // Usar la imagen del JSON
+        imgElement.alt = 'Bot Icon';
+        
+        // Crear contenedor para el texto
+        const textElement = document.createElement('span');
+        
+        // Añadir la imagen y el texto al contenedor del mensaje
+        messageElement.appendChild(imgElement);
+        messageElement.appendChild(textElement);
         modalBody.appendChild(messageElement);
+        
         let i = 0;
         const speed = config.typingSpeed;
         function type() {
             if (i < message.length) {
-                messageElement.textContent += message.charAt(i);
+                textElement.textContent += message.charAt(i);
                 i++;
                 setTimeout(type, speed);
             } else {
@@ -398,7 +423,19 @@ function initializeChatbot(data) {
     function addUserMessage(message) {
         const messageElement = document.createElement('div');
         messageElement.classList.add('chat-message', 'user');
-        messageElement.textContent = message;
+        
+        // Crear contenedor para el texto
+        const textElement = document.createElement('span');
+        textElement.textContent = message;
+        
+        // Añadir imagen del usuario
+        const imgElement = document.createElement('img');
+        imgElement.src = config.userImage || 'images/usuario.webp';
+        imgElement.alt = 'User Icon';
+        
+        // Añadir el texto y la imagen al contenedor del mensaje (texto primero, imagen después)
+        messageElement.appendChild(textElement);
+        messageElement.appendChild(imgElement);
         modalBody.appendChild(messageElement);
     }
 }

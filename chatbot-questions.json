@@ -3,6 +3,8 @@
     "greetingMessage": "¡Hola!👋 Bienvenido a Intercom. Selecciona una pregunta de la lista a continuación para obtener más información sobre nuestros servicios 😎🚀.",
     "typingSpeed": 25,
     "typingDelay": 300,
+    "botImage": "images/bot.webp",
+    "userImage": "images/usuario.webp",
     "elements": {
     "buttonId": "chatbot-button",
     "modalId": "chatbot-modal",
