@@ -405,7 +405,7 @@ body {
     max-height: 500px;
     background-color: #fff;
     border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 32px rgba(0, 0, 0, 0.2);
     z-index: 10000;
     overflow: hidden;
 }
@@ -430,7 +430,7 @@ body {
     background: none;
     border: none;
     color: #fff;
-    font-size: 18px;
+    font-size: 30px;
     cursor: pointer;
 }
 

@@ -481,7 +481,7 @@ chatbotButton.addEventListener('click', () => {
         chatbotModal.style.animation = 'scaleUp 0.3s ease-out forwards';
         if (isInitialOpen) {
             modalBody.scrollTop = 0;
-            typeResponse('¡Hola! Bienvenido a Intercom. Selecciona una pregunta de la lista a continuación para obtener más información sobre nuestros servicios.', () => {
+            typeResponse('¡Hola!👋 Bienvenido a Intercom. Selecciona una pregunta de la lista a continuación para obtener más información sobre nuestros servicios 😎🚀.', () => {
                 initQuestions();
                 isInitialOpen = false;
             });
