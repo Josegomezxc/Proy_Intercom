@@ -588,9 +588,7 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    max-width: 300px;
-    margin: 0 auto;
-    height: 48px;
+    height: 60px;
 }
 
 .modal-footer input {
