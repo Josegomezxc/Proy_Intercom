@@ -1,8 +1,8 @@
 {
-  "chatbotConfig": {
+"chatbotConfig": {
     "greetingMessage": "¡Hola!👋 Bienvenido a Intercom. Selecciona una pregunta de la lista a continuación para obtener más información sobre nuestros servicios 😎🚀.",
-    "typingSpeed": 30,
-    "typingDelay": 1500,
+    "typingSpeed": 25,
+    "typingDelay": 300,
     "elements": {
     "buttonId": "chatbot-button",
     "modalId": "chatbot-modal",

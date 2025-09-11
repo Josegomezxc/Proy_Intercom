@@ -402,3 +402,5 @@ function initializeChatbot(data) {
         modalBody.appendChild(messageElement);
     }
 }
+
+
