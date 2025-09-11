@@ -596,7 +596,8 @@ body {
     padding: 10px;
     border: 1px solid #d1d5db;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 12px;
+    max-width: 250px;
     outline: none;
 }
 
