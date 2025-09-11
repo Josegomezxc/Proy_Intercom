@@ -402,6 +402,3 @@ function initializeChatbot(data) {
         modalBody.appendChild(messageElement);
     }
 }
-
-// Inicializar el chatbot con el JSON
-initializeChatbot(chatbotData);
