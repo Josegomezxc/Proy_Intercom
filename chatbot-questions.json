@@ -1,111 +1,161 @@
 {
-    "questions": [
-        {
-            "id": "installation",
-            "text": "¿Qué incluye la instalación?",
-            "response": "La instalación es gratuita e incluye la configuración del router y la conexión de fibra óptica en tu hogar o empresa.",
-            "sub_questions": [
-                {
-                    "id": "schedule_install",
-                    "text": "¿Cómo agendar la instalación?",
-                    "response": "Puedes agendar llamando al +123 456 7890 o por WhatsApp."
-                },
-                {
-                    "id": "time_install",
-                    "text": "¿Cuánto tiempo toma la instalación?",
-                    "response": "Generalmente 1-2 horas dependiendo de la complejidad."
-                },
-                {
-                    "id": "back",
-                    "text": "Volver al menú principal",
-                    "response": "¿En qué más puedo ayudarte?"
-                }
-            ]
-        },
-        {
-            "id": "contract",
-            "text": "¿Hay contratos forzosos?",
-            "response": "No, en Intercom puedes cancelar tu plan en cualquier momento sin penalizaciones.",
-            "sub_questions": [
-                {
-                    "id": "cancel_process",
-                    "text": "¿Cómo cancelar el servicio?",
-                    "response": "Contacta a soporte al +123 456 7890 para procesar la cancelación."
-                },
-                {
-                    "id": "back",
-                    "text": "Volver al menú principal",
-                    "response": "¿En qué más puedo ayudarte?"
-                }
-            ]
-        },
-        {
-            "id": "support",
-            "text": "¿Qué tan rápido es el soporte técnico?",
-            "response": "Nuestro equipo está disponible 24/7, con un tiempo de respuesta promedio de 5 minutos.",
-            "sub_questions": [
-                {
-                    "id": "contact_support",
-                    "text": "¿Cómo contactar soporte?",
-                    "response": "Por teléfono, WhatsApp o email a soporte@intercom.com."
-                },
-                {
-                    "id": "back",
-                    "text": "Volver al menú principal",
-                    "response": "¿En qué más puedo ayudarte?"
-                }
-            ]
-        },
-        {
-            "id": "plan_change",
-            "text": "¿Puedo cambiar de plan?",
-            "response": "Sí, puedes cambiar de plan en cualquier momento sin costo adicional.",
-            "sub_questions": [
-                {
-                    "id": "change_process",
-                    "text": "¿Cómo cambiar de plan?",
-                    "response": "Contacta a ventas o usa el portal de cliente."
-                },
-                {
-                    "id": "back",
-                    "text": "Volver al menú principal",
-                    "response": "¿En qué más puedo ayudarte?"
-                }
-            ]
-        },
-        {
-            "id": "enterprise",
-            "text": "¿Ofrecen servicios para empresas?",
-            "response": "Sí, tenemos planes empresariales con IP fija, ancho de banda dedicado y soporte prioritario.",
-            "sub_questions": [
-                {
-                    "id": "enterprise_plans",
-                    "text": "¿Cuáles son los planes empresariales?",
-                    "response": "Contacta para planes personalizados."
-                },
-                {
-                    "id": "back",
-                    "text": "Volver al menú principal",
-                    "response": "¿En qué más puedo ayudarte?"
-                }
-            ]
-        },
-        {
-            "id": "intercom_tv",
-            "text": "¿Qué ofrece Intercom TV?",
-            "response": "Intercom TV ofrece más de 100 canales, transmisión en alta calidad y compatibilidad con iOS, Android y Smart TVs. ¡El plan Super Expert incluye Intercom TV gratis!",
-            "sub_questions": [
-                {
-                    "id": "tv_compatibility",
-                    "text": "¿Compatibilidad de Intercom TV?",
-                    "response": "Funciona en iOS, Android, Smart TVs y tablets."
-                },
-                {
-                    "id": "back",
-                    "text": "Volver al menú principal",
-                    "response": "¿En qué más puedo ayudarte?"
-                }
-            ]
-        }
+  "chatbotConfig": {
+    "greetingMessage": "¡Hola!👋 Bienvenido a Intercom. Selecciona una pregunta de la lista a continuación para obtener más información sobre nuestros servicios 😎🚀.",
+    "typingSpeed": 30,
+    "typingDelay": 1500,
+    "elements": {
+    "buttonId": "chatbot-button",
+    "modalId": "chatbot-modal",
+    "closeButtonId": "close-chatbot",
+    "questionListId": "question-list-modal",
+    "modalBodyClass": "modal-body"
+    },
+    "animations": {
+    "open": "scaleUp 0.3s ease-out forwards",
+    "close": "scaleDown 0.3s ease-in forwards"
+    }
+},
+"questions": [
+    {
+    "id": "who_are_you",
+    "text": "¿Quién eres?",
+    "response": "Soy Andrés 🤖, un asistente creado por José Gómez 👤, diseñado para ayudarte con información sobre Intercom y responder tus preguntas lo mejor posible 😊.",
+    "sub_questions": [
+    {
+        "id": "back",
+        "text": "Volver al menú principal",
+        "response": "¿En qué más puedo ayudarte?"
+    }
     ]
+    },
+{
+    "id": "internet_plans",
+    "text": "¿Cuáles son sus planes de internet?",
+    "response": "Ofrecemos varios planes de internet: Star (200 Mbps), Super (300 Mbps), Expert (350 Mbps) y Super Expert (600 Mbps) con Intercom TV incluido.",
+    "sub_questions": [
+    {
+        "id": "best_plan",
+        "text": "¿Cuál es el mejor plan?",
+        "response": "El plan Super Expert (600 Mbps) es el mejor por su alta velocidad y la inclusión de Intercom TV."
+    },
+    {
+        "id": "recommended_plan",
+        "text": "¿Cuál me recomiendan?",
+        "response": "Te recomendamos el plan Expert (350 Mbps) si necesitas buen rendimiento para streaming y trabajo remoto, o Super Expert si quieres lo mejor."
+    },
+    {
+        "id": "back",
+        "text": "Volver al menú principal",
+        "response": "¿En qué más puedo ayudarte?"
+    }
+    ]
+},
+{
+    "id": "installation",
+    "text": "¿Qué incluye la instalación?",
+    "response": "La instalación es gratuita e incluye la configuración del router y la conexión de fibra óptica en tu hogar o empresa.",
+    "sub_questions": [
+    {
+        "id": "schedule_install",
+        "text": "¿Cómo agendar la instalación?",
+        "response": "Puedes agendar llamando al +123 456 7890 o por WhatsApp."
+    },
+    {
+        "id": "time_install",
+        "text": "¿Cuánto tiempo toma la instalación?",
+        "response": "Generalmente 1-2 horas dependiendo de la complejidad."
+    },
+    {
+        "id": "back",
+        "text": "Volver al menú principal",
+        "response": "¿En qué más puedo ayudarte?"
+    }
+    ]
+},
+{
+    "id": "contract",
+    "text": "¿Hay contratos forzosos?",
+    "response": "No, en Intercom puedes cancelar tu plan en cualquier momento sin penalizaciones.",
+    "sub_questions": [
+    {
+        "id": "cancel_process",
+        "text": "¿Cómo cancelar el servicio?",
+        "response": "Contacta a soporte al +123 456 7890 para procesar la cancelación."
+    },
+    {
+        "id": "back",
+        "text": "Volver al menú principal",
+        "response": "¿En qué más puedo ayudarte?"
+    }
+    ]
+},
+{
+    "id": "support",
+    "text": "¿Qué tan rápido es el soporte técnico?",
+    "response": "Nuestro equipo está disponible 24/7, con un tiempo de respuesta promedio de 5 minutos.",
+    "sub_questions": [
+    {
+        "id": "contact_support",
+        "text": "¿Cómo contactar soporte?",
+        "response": "Por teléfono, WhatsApp o email a soporte@intercom.com."
+    },
+    {
+        "id": "back",
+        "text": "Volver al menú principal",
+        "response": "¿En qué más puedo ayudarte?"
+    }
+    ]
+},
+{
+    "id": "plan_change",
+    "text": "¿Puedo cambiar de plan?",
+    "response": "Sí, puedes cambiar de plan en cualquier momento sin costo adicional.",
+    "sub_questions": [
+    {
+        "id": "change_process",
+        "text": "¿Cómo cambiar de plan?",
+        "response": "Contacta a ventas o usa el portal de cliente."
+    },
+    {
+        "id": "back",
+        "text": "Volver al menú principal",
+        "response": "¿En qué más puedo ayudarte?"
+    }
+    ]
+},
+{
+    "id": "enterprise",
+    "text": "¿Ofrecen servicios para empresas?",
+    "response": "Sí, tenemos planes empresariales con IP fija, ancho de banda dedicado y soporte prioritario.",
+    "sub_questions": [
+    {
+        "id": "enterprise_plans",
+        "text": "¿Cuáles son los planes empresariales?",
+        "response": "Contacta para planes personalizados."
+    },
+    {
+        "id": "back",
+        "text": "Volver al menú principal",
+        "response": "¿En qué más puedo ayudarte?"
+    }
+    ]
+},
+{
+    "id": "intercom_tv",
+    "text": "¿Qué ofrece Intercom TV?",
+    "response": "Intercom TV ofrece más de 100 canales, transmisión en alta calidad y compatibilidad con iOS, Android y Smart TVs. ¡El plan Super Expert incluye Intercom TV gratis!",
+    "sub_questions": [
+    {
+        "id": "tv_compatibility",
+        "text": "¿Compatibilidad de Intercom TV?",
+        "response": "Funciona en iOS, Android, Smart TVs y tablets."
+    },
+    {
+        "id": "back",
+        "text": "Volver al menú principal",
+        "response": "¿En qué más puedo ayudarte?"
+    }
+    ]
+}
+]
 }

@@ -218,298 +218,190 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-// Carga de preguntas y respuestas para el bot
-const chatbotData = {
-    "questions": [
-        {
-            "id": "installation",
-            "text": "¿Qué incluye la instalación?",
-            "response": "La instalación es gratuita e incluye la configuración del router y la conexión de fibra óptica en tu hogar o empresa.",
-            "sub_questions": [
-                {
-                    "id": "schedule_install",
-                    "text": "¿Cómo agendar la instalación?",
-                    "response": "Puedes agendar llamando al +123 456 7890 o por WhatsApp."
-                },
-                {
-                    "id": "time_install",
-                    "text": "¿Cuánto tiempo toma la instalación?",
-                    "response": "Generalmente 1-2 horas dependiendo de la complejidad."
-                },
-                {
-                    "id": "back",
-                    "text": "Volver al menú principal",
-                    "response": "¿En qué más puedo ayudarte?"
-                }
-            ]
-        },
-        {
-            "id": "contract",
-            "text": "¿Hay contratos forzosos?",
-            "response": "No, en Intercom puedes cancelar tu plan en cualquier momento sin penalizaciones.",
-            "sub_questions": [
-                {
-                    "id": "cancel_process",
-                    "text": "¿Cómo cancelar el servicio?",
-                    "response": "Contacta a soporte al +123 456 7890 para procesar la cancelación."
-                },
-                {
-                    "id": "back",
-                    "text": "Volver al menú principal",
-                    "response": "¿En qué más puedo ayudarte?"
-                }
-            ]
-        },
-        {
-            "id": "support",
-            "text": "¿Qué tan rápido es el soporte técnico?",
-            "response": "Nuestro equipo está disponible 24/7, con un tiempo de respuesta promedio de 5 minutos.",
-            "sub_questions": [
-                {
-                    "id": "contact_support",
-                    "text": "¿Cómo contactar soporte?",
-                    "response": "Por teléfono, WhatsApp o email a soporte@intercom.com."
-                },
-                {
-                    "id": "back",
-                    "text": "Volver al menú principal",
-                    "response": "¿En qué más puedo ayudarte?"
-                }
-            ]
-        },
-        {
-            "id": "plan_change",
-            "text": "¿Puedo cambiar de plan?",
-            "response": "Sí, puedes cambiar de plan en cualquier momento sin costo adicional.",
-            "sub_questions": [
-                {
-                    "id": "change_process",
-                    "text": "¿Cómo cambiar de plan?",
-                    "response": "Contacta a ventas o usa el portal de cliente."
-                },
-                {
-                    "id": "back",
-                    "text": "Volver al menú principal",
-                    "response": "¿En qué más puedo ayudarte?"
-                }
-            ]
-        },
-        {
-            "id": "enterprise",
-            "text": "¿Ofrecen servicios para empresas?",
-            "response": "Sí, tenemos planes empresariales con IP fija, ancho de banda dedicado y soporte prioritario.",
-            "sub_questions": [
-                {
-                    "id": "enterprise_plans",
-                    "text": "¿Cuáles son los planes empresariales?",
-                    "response": "Contacta para planes personalizados."
-                },
-                {
-                    "id": "back",
-                    "text": "Volver al menú principal",
-                    "response": "¿En qué más puedo ayudarte?"
-                }
-            ]
-        },
-        {
-            "id": "intercom_tv",
-            "text": "¿Qué ofrece Intercom TV?",
-            "response": "Intercom TV ofrece más de 100 canales, transmisión en alta calidad y compatibilidad con iOS, Android y Smart TVs. ¡El plan Super Expert incluye Intercom TV gratis!",
-            "sub_questions": [
-                {
-                    "id": "tv_compatibility",
-                    "text": "¿Compatibilidad de Intercom TV?",
-                    "response": "Funciona en iOS, Android, Smart TVs y tablets."
-                },
-                {
-                    "id": "back",
-                    "text": "Volver al menú principal",
-                    "response": "¿En qué más puedo ayudarte?"
-                }
-            ]
+// Cargar el JSON
+const chatbotData = 
+fetch('chatbot-questions.json')
+    .then(response => response.json())
+    .then(data => initializeChatbot(data));
+
+function initializeChatbot(data) {
+    const config = data.chatbotConfig;
+    const questions = data.questions;
+
+    const chatbotButton = document.getElementById(config.elements.buttonId);
+    const chatbotModal = document.getElementById(config.elements.modalId);
+    const closeChatbot = document.getElementById(config.elements.closeButtonId);
+    const questionListModal = document.getElementById(config.elements.questionListId);
+    const modalBody = document.querySelector(`.${config.elements.modalBodyClass}`);
+    let currentSubQuestions = null;
+    let isProcessing = false;
+    let isInitialOpen = true;
+
+    // Renderizar preguntas
+    function renderQuestions(questions, isSub = false, isMainMenu = false) {
+        const questionList = document.createElement('div');
+        questionList.classList.add('question-list');
+        if (isMainMenu) {
+            questionList.classList.add('main');
         }
-    ]
-};
-
-const chatbotButton = document.getElementById('chatbot-button');
-const chatbotModal = document.getElementById('chatbot-modal');
-const closeChatbot = document.getElementById('close-chatbot');
-const questionListModal = document.getElementById('question-list-modal');
-const modalBody = document.querySelector('.modal-body');
-let currentSubQuestions = null;
-let isProcessing = false; 
-let isInitialOpen = true;
-
-// Funcion para ver preguntas
-function renderQuestions(questions, isSub = false, isMainMenu = false) {
-    const questionList = document.createElement('div');
-    questionList.classList.add('question-list');
-    if (isMainMenu) {
-        questionList.classList.add('main');
-    }
-    questions.forEach(q => {
-        const questionItem = document.createElement('div');
-        questionItem.classList.add('question-item');
-        if (q.id === 'back') {
-            questionItem.classList.add('back');
-        }
-        questionItem.dataset.questionId = q.id;
-        questionItem.dataset.isSub = isSub ? 'true' : 'false';
-        questionItem.textContent = q.text;
-        questionList.appendChild(questionItem);
-    });
-    modalBody.appendChild(questionList);
-    addClickListeners();
-    return questionList;
-}
-
-// Populate initial modal list
-function initQuestions() {
-    questionListModal.innerHTML = '';
-    modalBody.querySelectorAll('.question-list').forEach(list => list.remove());
-    renderQuestions(chatbotData.questions, false, true);
-    currentSubQuestions = null;
-}
-
-// Add listeners to modal questions
-function addClickListeners() {
-    modalBody.querySelectorAll('.question-item').forEach(item => {
-        item.addEventListener('click', () => {
-            if (isProcessing) return;
-            const questionId = item.dataset.questionId;
-            const isSub = item.dataset.isSub === 'true';
-            handleQuestion(questionId, isSub);
+        questions.forEach(q => {
+            const questionItem = document.createElement('div');
+            questionItem.classList.add('question-item');
+            if (q.id === 'back') {
+                questionItem.classList.add('back');
+            }
+            questionItem.dataset.questionId = q.id;
+            questionItem.dataset.isSub = isSub ? 'true' : 'false';
+            questionItem.textContent = q.text;
+            questionList.appendChild(questionItem);
         });
-    });
-}
-
-// burbujas de ws y tipeo
-function showTypingBubble() {
-    const typingElement = document.createElement('div');
-    typingElement.classList.add('chat-message', 'typing');
-    typingElement.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
-    modalBody.appendChild(typingElement);
-    return typingElement;
-}
-
-// Hacer responsive las letras
-function typeResponse(message, callback) {
-    const messageElement = document.createElement('div');
-    messageElement.classList.add('chat-message', 'bot');
-    modalBody.appendChild(messageElement); // Append below typing bubble
-    let i = 0;
-    const speed = 30; // Milliseconds per character
-    function type() {
-        if (i < message.length) {
-            messageElement.textContent += message.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        } else {
-            callback();
-        }
+        modalBody.appendChild(questionList);
+        addClickListeners();
+        return questionList;
     }
-    type();
-}
 
-// Seleccion de preguntas
-function handleQuestion(questionId, isSub) {
-    isProcessing = true;
-    let question;
-    let parentQuestion = null;
+    // Inicializar lista de preguntas
+    function initQuestions() {
+        questionListModal.innerHTML = '';
+        modalBody.querySelectorAll('.question-list').forEach(list => list.remove());
+        renderQuestions(questions, false, true);
+        currentSubQuestions = null;
+    }
 
-    if (isSub) {
-        for (const mainQ of chatbotData.questions) {
-            if (mainQ.sub_questions) {
-                question = mainQ.sub_questions.find(q => q.id === questionId);
-                if (question) {
-                    parentQuestion = mainQ;
-                    break;
-                }
+    // Añadir listeners a las preguntas
+    function addClickListeners() {
+        modalBody.querySelectorAll('.question-item').forEach(item => {
+            item.addEventListener('click', () => {
+                if (isProcessing) return;
+                const questionId = item.dataset.questionId;
+                const isSub = item.dataset.isSub === 'true';
+                handleQuestion(questionId, isSub);
+            });
+        });
+    }
+
+    // Mostrar burbuja de "escribiendo"
+    function showTypingBubble() {
+        const typingElement = document.createElement('div');
+        typingElement.classList.add('chat-message', 'typing');
+        typingElement.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+        modalBody.appendChild(typingElement);
+        return typingElement;
+    }
+
+    // Animar respuesta letra por letra
+    function typeResponse(message, callback) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('chat-message', 'bot');
+        modalBody.appendChild(messageElement);
+        let i = 0;
+        const speed = config.typingSpeed;
+        function type() {
+            if (i < message.length) {
+                messageElement.textContent += message.charAt(i);
+                i++;
+                setTimeout(type, speed);
+            } else {
+                callback();
             }
         }
-    } else {
-        question = chatbotData.questions.find(q => q.id === questionId);
+        type();
     }
 
-    if (question) {
-        if (question.id === 'back') {
+    // Manejar selección de preguntas
+    function handleQuestion(questionId, isSub) {
+        isProcessing = true;
+        let question;
+        let parentQuestion = null;
+
+        if (isSub) {
+            for (const mainQ of questions) {
+                if (mainQ.sub_questions) {
+                    question = mainQ.sub_questions.find(q => q.id === questionId);
+                    if (question) {
+                        parentQuestion = mainQ;
+                        break;
+                    }
+                }
+            }
+        } else {
+            question = questions.find(q => q.id === questionId);
+        }
+
+        if (question) {
+            if (question.id === 'back') {
+                modalBody.querySelectorAll('.question-list').forEach(list => list.remove());
+                addUserMessage(question.text);
+                const typingElement = showTypingBubble();
+                setTimeout(() => {
+                    typingElement.remove();
+                    typeResponse(question.response, () => {
+                        renderQuestions(questions, false, true);
+                        currentSubQuestions = null;
+                        isProcessing = false;
+                        modalBody.scrollTop = modalBody.scrollHeight;
+                    });
+                }, config.typingDelay);
+                return;
+            }
+
             modalBody.querySelectorAll('.question-list').forEach(list => list.remove());
-            addUserMessage(question.text); 
+            addUserMessage(question.text);
             const typingElement = showTypingBubble();
             setTimeout(() => {
                 typingElement.remove();
                 typeResponse(question.response, () => {
-                    renderQuestions(chatbotData.questions, false, true);
-                    currentSubQuestions = null;
+                    if (isSub && currentSubQuestions) {
+                        renderQuestions(currentSubQuestions, true);
+                    } else if (!isSub && question.sub_questions && question.sub_questions.length > 0) {
+                        currentSubQuestions = question.sub_questions;
+                        renderQuestions(currentSubQuestions, true);
+                    }
                     isProcessing = false;
                     modalBody.scrollTop = modalBody.scrollHeight;
                 });
-            }, 1500);
-            return;
-        }
-
-        // Limpiar preguntas pricipales y dejar las subpreguntas
-        modalBody.querySelectorAll('.question-list').forEach(list => list.remove());
-        addUserMessage(question.text);
-        const typingElement = showTypingBubble();
-        setTimeout(() => {
-            typingElement.remove();
-            typeResponse(question.response, () => {
-                if (isSub && currentSubQuestions) {
-                    renderQuestions(currentSubQuestions, true);
-                } else if (!isSub && question.sub_questions && question.sub_questions.length > 0) {
-                    currentSubQuestions = question.sub_questions;
-                    renderQuestions(currentSubQuestions, true);
-                }
-                isProcessing = false;
-                modalBody.scrollTop = modalBody.scrollHeight; 
-            });
-        }, 1500); 
-    } else {
-        isProcessing = false;
-    }
-}
-
-// Cuadro del boton del chatbot
-chatbotButton.addEventListener('click', () => {
-    if (chatbotModal.classList.contains('show')) {
-        chatbotModal.classList.remove('show');
-        chatbotModal.style.animation = 'scaleDown 0.3s ease-in forwards';
-        currentSubQuestions = null;
-    } else {
-        chatbotModal.classList.add('show');
-        chatbotModal.style.animation = 'scaleUp 0.3s ease-out forwards';
-        if (isInitialOpen) {
-            modalBody.scrollTop = 0;
-            typeResponse('¡Hola!👋 Bienvenido a Intercom. Selecciona una pregunta de la lista a continuación para obtener más información sobre nuestros servicios 😎🚀.', () => {
-                initQuestions();
-                isInitialOpen = false;
-            });
+            }, config.typingDelay);
         } else {
-            initQuestions();
+            isProcessing = false;
         }
     }
-});
 
-// Close chatbot
-closeChatbot.addEventListener('click', () => {
-    chatbotModal.classList.remove('show');
-    chatbotModal.style.animation = 'scaleDown 0.3s ease-in forwards';
-    currentSubQuestions = null; // Reset sub-questions
-});
+    // Manejar botón del chatbot
+    chatbotButton.addEventListener('click', () => {
+        if (chatbotModal.classList.contains('show')) {
+            chatbotModal.classList.remove('show');
+            chatbotModal.style.animation = config.animations.close;
+            currentSubQuestions = null;
+        } else {
+            chatbotModal.classList.add('show');
+            chatbotModal.style.animation = config.animations.open;
+            if (isInitialOpen) {
+                modalBody.scrollTop = 0;
+                typeResponse(config.greetingMessage, () => {
+                    initQuestions();
+                    isInitialOpen = false;
+                });
+            } else {
+                initQuestions();
+            }
+        }
+    });
 
-// Add user message to chat
-function addUserMessage(message) {
-    const messageElement = document.createElement('div');
-    messageElement.classList.add('chat-message', 'user');
-    messageElement.textContent = message;
-    modalBody.appendChild(messageElement);
+    // Cerrar chatbot
+    closeChatbot.addEventListener('click', () => {
+        chatbotModal.classList.remove('show');
+        chatbotModal.style.animation = config.animations.close;
+        currentSubQuestions = null;
+    });
+
+    // Añadir mensaje de usuario
+    function addUserMessage(message) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('chat-message', 'user');
+        messageElement.textContent = message;
+        modalBody.appendChild(messageElement);
+    }
 }
 
-// Add bot message to chat (used only for initial greeting)
-function addBotMessage(message) {
-    const messageElement = document.createElement('div');
-    messageElement.classList.add('chat-message', 'bot');
-    messageElement.textContent = message;
-    modalBody.appendChild(messageElement);
-}
+// Inicializar el chatbot con el JSON
+initializeChatbot(chatbotData);

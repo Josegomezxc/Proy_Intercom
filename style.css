@@ -425,6 +425,12 @@ body {
     font-weight: 600;
     height: 48px;
 }
+.modal-header img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
 
 .modal-header button {
     background: none;
@@ -573,7 +579,7 @@ body {
 .modal-footer button {
     background-color: #f97316;
     color: #fff;
-    padding: 10px 16px;
+    padding: 10px 10px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
