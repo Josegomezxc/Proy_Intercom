@@ -506,7 +506,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
@@ -592,14 +592,32 @@
             </p>
         </div>
     </div>
-
+    
     <!-- Boton de scroll -->
     <button class="button" onclick="scrollToTop()">
         <svg class="svgIcon" viewBox="0 0 384 512">
             <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path>
         </svg>
     </button>
+    <!-- Chatbot Button -->
+    <div id="chatbot-button">
+        <i class="fas fa-comment-dots fa-2x"></i>
+    </div>
 
+    <!-- Chatbot Modal -->
+    <div id="chatbot-modal">
+        <div class="modal-header">
+            <span>Intercom AI Assistant</span>
+            <button id="close-chatbot">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="question-list" id="question-list-modal"></div>
+        </div>
+        <!-- <div class="modal-footer">
+            <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." disabled>
+            <button id="send-message" disabled>Enviar</button>
+        </div> -->
+    </div>
     <!-- Boton de whatsapp -->
     <a href="https://wa.me/593990818133" class="btn-whatsapp">
         <img src="images/icon-whatsapp.svg" alt="Contacto por whatsapp">
