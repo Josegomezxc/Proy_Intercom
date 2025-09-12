@@ -1,16 +1,16 @@
 
-html{
-    scroll-behavior: smooth;
-}
-body {
-    font-family: 'Poppins', sans-serif;
-}
 
+html,body {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+
+}
 
 .container {
     max-width: 100%;
     overflow-x: hidden;
 }
+
 .hero-image-container {
     position: relative;
     overflow: hidden;
