@@ -441,3 +441,26 @@ function initializeChatbot(data) {
 }
 
 
+const themeToggle = document.getElementById('theme-toggle');
+const html = document.documentElement;
+
+// Cargar tema guardado con animación
+const savedTheme = localStorage.getItem('theme') || 'light';
+html.setAttribute('data-theme', savedTheme);
+
+// Toggle con efectos visuales
+themeToggle?.addEventListener('click', () => {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    // Agregar clase de transición
+    html.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+    
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Remover transición después del cambio
+    setTimeout(() => {
+        html.style.transition = '';
+    }, 600);
+});

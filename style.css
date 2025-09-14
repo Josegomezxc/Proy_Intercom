@@ -1,9 +1,54 @@
+/* Variables CSS para modo oscuro premium */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --bg-card: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #64748b;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --orange-primary: #f97316;
+  --orange-hover: #ea580c;
+  --blur-amount: 20px;
+  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+[data-theme="dark"] {
+  --bg-primary: #020617;
+  --bg-secondary: #0f172a;
+  --bg-tertiary: #1e293b;
+  --bg-card: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  --border-color: #334155;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+  --gradient-primary: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+  --gradient-secondary: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+  --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #0891b2 50%, #0e7490 100%);
+  --glass-bg: rgba(30, 41, 59, 0.3);
+  --glass-border: rgba(148, 163, 184, 0.1);
+  --orange-primary: #fb923c;
+  --orange-hover: #f97316;
+}
 
 html,body {
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
-
 }
 
 .container {
@@ -683,4 +728,836 @@ html,body {
         margin-left: 30%;
         margin-right: 5%;
     }
+}
+
+/* === EFECTOS MÓVILES PARA TODAS LAS SECCIONES === */
+
+/* SECCIÓN PLANES - Efectos permanentes en móviles */
+@media (max-width: 768px) {
+  [data-theme="dark"] #planes {
+    background: var(--bg-secondary);
+    position: relative;
+  }
+  
+  [data-theme="dark"] #planes::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-primary);
+    opacity: 0.05;
+    animation: sectionGlow 4s infinite ease-in-out;
+  }
+  
+  [data-theme="dark"] #planes h2 {
+    color: var(--orange-primary);
+    text-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
+    animation: titleGlow 3s infinite ease-in-out;
+  }
+  
+  /* Activar efectos de cards en la sección planes */
+  [data-theme="dark"] #planes .plan-card::after {
+    opacity: 1;
+    animation: shimmer 2s infinite;
+  }
+  
+  [data-theme="dark"] #planes .plan-card {
+    transform: scale(1.02) translateY(-2px);
+    box-shadow: 0 15px 35px -8px rgba(0, 0, 0, 0.6);
+    border-color: var(--orange-primary);
+    animation: planCardGlow 3s infinite ease-in-out;
+  }
+}
+
+@keyframes planCardGlow {
+  0%, 100% { 
+    border-color: var(--orange-primary);
+    box-shadow: 0 15px 35px -8px rgba(0, 0, 0, 0.6);
+  }
+  50% { 
+    border-color: var(--orange-hover);
+    box-shadow: 0 20px 45px -8px rgba(249, 115, 22, 0.4);
+  }
+}
+
+/* SECCIÓN BENEFICIOS - Efectos permanentes en móviles */
+@media (max-width: 768px) {
+  [data-theme="dark"] #beneficios {
+    background: var(--bg-primary);
+    position: relative;
+  }
+  
+  [data-theme="dark"] #beneficios::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-secondary);
+    opacity: 0.03;
+    animation: sectionPulse 5s infinite ease-in-out;
+  }
+  
+  [data-theme="dark"] #beneficios h2 {
+    color: var(--text-primary);
+    text-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+    animation: benefitsTitleGlow 2.5s infinite ease-in-out;
+  }
+  
+  /* Activar efectos de beneficios cards */
+  [data-theme="dark"] #beneficios .grid > div::before {
+    opacity: 0.05;
+    animation: benefitsCardGlow 4s infinite ease-in-out;
+  }
+  
+  [data-theme="dark"] #beneficios .grid > div {
+    transform: translateY(-4px);
+    border-color: var(--orange-primary);
+    box-shadow: var(--shadow-xl);
+    animation: benefitsFloat 3.5s infinite ease-in-out;
+  }
+  
+  [data-theme="dark"] #beneficios i {
+    animation: float 2s ease-in-out infinite;
+    filter: drop-shadow(0 6px 12px rgba(124, 58, 237, 0.5));
+  }
+}
+
+@keyframes benefitsCardGlow {
+  0%, 100% { opacity: 0.05; }
+  50% { opacity: 0.1; }
+}
+
+@keyframes benefitsFloat {
+  0%, 100% { 
+    transform: translateY(-4px);
+    border-color: var(--orange-primary);
+    box-shadow: var(--shadow-xl);
+  }
+  50% { 
+    transform: translateY(-8px);
+    border-color: var(--orange-hover);
+    box-shadow: 0 20px 40px -10px rgba(124, 58, 237, 0.3);
+  }
+}
+
+/* SECCIÓN INTERCOM TV - Efectos permanentes en móviles */
+@media (max-width: 768px) {
+  [data-theme="dark"] #intercom-tv {
+    background: var(--bg-secondary);
+    position: relative;
+  }
+  
+  [data-theme="dark"] #intercom-tv::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-accent);
+    opacity: 0.04;
+    animation: tvSectionGlow 3.5s infinite ease-in-out;
+  }
+  
+  [data-theme="dark"] #intercom-tv h2 {
+    color: var(--orange-primary);
+    text-shadow: 0 0 25px rgba(6, 182, 212, 0.6);
+    animation: tvTitleGlow 3s infinite ease-in-out;
+  }
+}
+
+/* SECCIÓN CONTACTO - Efectos permanentes en móviles */
+@media (max-width: 768px) {
+  [data-theme="dark"] #contacto {
+    background: var(--bg-primary);
+    position: relative;
+  }
+  
+  [data-theme="dark"] #contacto::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, var(--gradient-primary), var(--gradient-accent));
+    opacity: 0.06;
+    animation: contactSectionGlow 4.5s infinite ease-in-out;
+  }
+  
+  [data-theme="dark"] #contacto h2 {
+    color: var(--orange-primary);
+    text-shadow: 0 0 20px rgba(249, 115, 22, 0.7);
+    animation: contactTitleGlow 2.8s infinite ease-in-out;
+  }
+}
+
+/* ANIMACIONES PARA SECCIONES */
+@keyframes sectionGlow {
+  0%, 100% { opacity: 0.05; }
+  50% { opacity: 0.08; }
+}
+
+@keyframes sectionPulse {
+  0%, 100% { opacity: 0.03; }
+  50% { opacity: 0.06; }
+}
+
+@keyframes tvSectionGlow {
+  0%, 100% { opacity: 0.04; }
+  50% { opacity: 0.07; }
+}
+
+@keyframes contactSectionGlow {
+  0%, 100% { opacity: 0.06; }
+  50% { opacity: 0.09; }
+}
+
+@keyframes titleGlow {
+  0%, 100% { 
+    text-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
+    color: var(--orange-primary);
+  }
+  50% { 
+    text-shadow: 0 0 30px rgba(249, 115, 22, 0.8);
+    color: var(--orange-hover);
+  }
+}
+
+@keyframes benefitsTitleGlow {
+  0%, 100% { 
+    text-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+    color: var(--text-primary);
+  }
+  50% { 
+    text-shadow: 0 0 25px rgba(124, 58, 237, 0.7);
+    color: var(--orange-primary);
+  }
+}
+
+@keyframes tvTitleGlow {
+  0%, 100% { 
+    text-shadow: 0 0 25px rgba(6, 182, 212, 0.6);
+    color: var(--orange-primary);
+  }
+  50% { 
+    text-shadow: 0 0 35px rgba(6, 182, 212, 0.9);
+    color: #06b6d4;
+  }
+}
+
+@keyframes contactTitleGlow {
+  0%, 100% { 
+    text-shadow: 0 0 20px rgba(249, 115, 22, 0.7);
+    color: var(--orange-primary);
+  }
+  50% { 
+    text-shadow: 0 0 30px rgba(249, 115, 22, 1);
+    color: var(--orange-hover);
+  }
+}
+
+/* === FIN EFECTOS MÓVILES PARA SECCIONES === */
+:not(.btn-whatsapp):not(.button):not(#chatbot-button):not(#cookie-banner):not(#mobile-menu) * {
+  transition: var(--transition);
+}
+
+/* Body con gradiente de fondo dinámico */
+body {
+  background: var(--bg-primary);
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-primary);
+  opacity: 0;
+  z-index: -2;
+  transition: var(--transition);
+}
+
+[data-theme="dark"] body::before {
+  opacity: 0.03;
+}
+
+/* Efectos de glassmorphism para navbar */
+[data-theme="dark"] nav {
+  background: rgba(2, 6, 23, 0.8);
+  backdrop-filter: blur(var(--blur-amount));
+  -webkit-backdrop-filter: blur(var(--blur-amount));
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Hero section con overlay mejorado */
+[data-theme="dark"] .hero-image-container::before {
+  background: linear-gradient(135deg, 
+    rgba(2, 6, 23, 0.9) 0%, 
+    rgba(15, 23, 42, 0.8) 30%,
+    rgba(30, 41, 59, 0.7) 70%,
+    rgba(51, 65, 85, 0.6) 100%);
+}
+
+/* Secciones con gradientes sutiles - SIN position relative */
+[data-theme="dark"] section:not(#inicio) {
+  background: var(--bg-primary);
+}
+
+[data-theme="dark"] .bg-white {
+  background: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] .bg-gray-100 {
+  background: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .bg-gray-100::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-secondary);
+  opacity: 0.02;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Cards premium con glassmorphism */
+[data-theme="dark"] .plan-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-amount));
+  -webkit-backdrop-filter: blur(var(--blur-amount));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .plan-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-accent);
+  opacity: 0.8;
+}
+
+[data-theme="dark"] .plan-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+}
+
+[data-theme="dark"] .plan-card:hover::after {
+  opacity: 1;
+  animation: shimmer 2s infinite;
+}
+
+[data-theme="dark"] .plan-card:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+  border-color: var(--orange-primary);
+}
+
+@keyframes shimmer {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Beneficios con efectos visuales mejorados */
+[data-theme="dark"] #beneficios .grid > div {
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+[data-theme="dark"] #beneficios .grid > div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-accent);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+}
+
+[data-theme="dark"] #beneficios .grid > div:hover::before {
+  opacity: 0.05;
+}
+
+[data-theme="dark"] #beneficios .grid > div:hover {
+  transform: translateY(-8px);
+  border-color: var(--orange-primary);
+  box-shadow: var(--shadow-xl);
+}
+
+[data-theme="dark"] #beneficios i {
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 4px 8px rgba(124, 58, 237, 0.3));
+}
+
+/* Intercom TV section con diseño premium */
+[data-theme="dark"] #intercom-tv .bg-gray-50 {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] #intercom-tv .bg-gray-50::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--gradient-accent);
+  border-radius: inherit;
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+}
+
+/* Efectos siempre visibles en móviles */
+@media (max-width: 768px) {
+  [data-theme="dark"] #intercom-tv .bg-gray-50::before {
+    opacity: 0.1;
+  }
+}
+
+[data-theme="dark"] #intercom-tv .bg-gray-50:hover::before {
+  opacity: 0.1;
+}
+
+[data-theme="dark"] #intercom-tv i {
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 4px rgba(124, 58, 237, 0.4));
+}
+
+/* FAQ con efectos mejorados */
+[data-theme="dark"] .faq-item {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .faq-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+/* Efectos siempre visibles en móviles */
+@media (max-width: 768px) {
+  [data-theme="dark"] .faq-item::before {
+    left: 100%;
+    animation: slideGlow 3s infinite;
+  }
+  
+  [data-theme="dark"] .faq-item {
+    transform: translateY(-1px);
+    border-color: var(--orange-primary);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+@keyframes slideGlow {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: -100%; }
+}
+
+[data-theme="dark"] .faq-item:hover::before {
+  left: 100%;
+}
+
+[data-theme="dark"] .faq-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--orange-primary);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Formulario con glassmorphism */
+[data-theme="dark"] #contacto input,
+[data-theme="dark"] #contacto select {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+
+[data-theme="dark"] #contacto input:focus,
+[data-theme="dark"] #contacto select:focus {
+  background: rgba(30, 41, 59, 0.8);
+  border-color: var(--orange-primary);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Footer premium */
+[data-theme="dark"] footer {
+  background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+  border-top: 1px solid var(--glass-border);
+  position: relative;
+}
+
+[data-theme="dark"] footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gradient-accent);
+  opacity: 0.5;
+}
+
+/* Menú móvil mejorado - MANTENER Z-INDEX ALTO */
+[data-theme="dark"] #mobile-menu {
+  background: rgba(2, 6, 23, 0.95);
+  backdrop-filter: blur(var(--blur-amount));
+  border-left: 1px solid var(--glass-border);
+  box-shadow: -10px 0 25px rgba(0, 0, 0, 0.5);
+  /* Z-index se mantiene desde el CSS original */
+}
+
+[data-theme="dark"] #mobile-menu a {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] #mobile-menu a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-accent);
+  opacity: 0.1;
+  transition: left 0.3s ease;
+}
+
+[data-theme="dark"] #mobile-menu a:hover::before {
+  left: 0;
+}
+
+/* Botones con efectos premium */
+[data-theme="dark"] .bg-orange-500 {
+  background: linear-gradient(135deg, var(--orange-primary) 0%, var(--orange-hover) 100%);
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+  transition: var(--transition);
+}
+
+[data-theme="dark"] .bg-orange-500:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.6);
+}
+
+/* Chatbot premium - MANTENER Z-INDEX ORIGINAL */
+[data-theme="dark"] #chatbot-modal {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-amount));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-xl);
+  /* Z-index se mantiene desde el CSS original */
+}
+
+[data-theme="dark"] #chatbot-button {
+  background: linear-gradient(135deg, var(--orange-primary) 0%, var(--orange-hover) 100%);
+  box-shadow: var(--shadow-lg);
+  /* Z-index se mantiene desde el CSS original */
+}
+
+[data-theme="dark"] .modal-header {
+  background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+[data-theme="dark"] .modal-body {
+  background: rgba(15, 23, 42, 0.3);
+}
+
+[data-theme="dark"] .chat-message.user {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+}
+
+[data-theme="dark"] .question-item {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  transition: var(--transition);
+}
+
+[data-theme="dark"] .question-item:hover {
+  background: var(--orange-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+/* Cookie banner premium - MANTENER Z-INDEX ORIGINAL */
+[data-theme="dark"] #cookie-banner {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-amount));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-xl);
+  /* Z-index se mantiene desde el CSS original */
+}
+
+[data-theme="dark"] .modal-content {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-amount));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Botón de theme toggle mejorado */
+#theme-toggle {
+  position: relative;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  transition: var(--transition);
+}
+
+[data-theme="dark"] #theme-toggle {
+  background: var(--glass-bg);
+  box-shadow: var(--shadow);
+}
+
+#theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-lg);
+}
+
+#theme-toggle i {
+  transition: var(--transition);
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="dark"] #theme-toggle i:before {
+  content: "\f185";
+}
+
+[data-theme="dark"] #theme-toggle i {
+  transform: rotate(180deg) scale(1.1);
+}
+
+/* Animaciones adicionales */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+[data-theme="dark"] #beneficios i:hover {
+  animation: float 2s ease-in-out infinite;
+}
+
+/* Mejoras de contraste y legibilidad */
+[data-theme="dark"] .text-gray-600 {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .text-gray-700 {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .text-gray-400 {
+  color: var(--text-tertiary) !important;
+}
+
+[data-theme="dark"] h1, 
+[data-theme="dark"] h2, 
+[data-theme="dark"] h3, 
+[data-theme="dark"] h4, 
+[data-theme="dark"] h5, 
+[data-theme="dark"] h6 {
+  color: var(--text-primary);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Scroll personalizado */
+[data-theme="dark"] ::-webkit-scrollbar {
+  width: 8px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--gradient-accent);
+  border-radius: 4px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--orange-primary);
+}
+
+/* Botón scroll to top mejorado - MANTENER Z-INDEX ORIGINAL */
+[data-theme="dark"] .button {
+  background: var(--gradient-secondary);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--glass-border);
+  /* Z-index se mantiene desde el CSS original */
+}
+
+/* Efectos siempre visibles en móviles para botón scroll */
+@media (max-width: 768px) {
+  [data-theme="dark"] .button {
+    transform: scale(1.1) translateY(-4px);
+    box-shadow: var(--shadow-xl);
+    animation: scrollButtonGlow 2.5s infinite ease-in-out;
+    border-color: var(--orange-primary);
+  }
+}
+
+@keyframes scrollButtonGlow {
+  0%, 100% { 
+    transform: scale(1.1) translateY(-4px);
+    box-shadow: var(--shadow-xl);
+    background: var(--gradient-secondary);
+  }
+  50% { 
+    transform: scale(1.15) translateY(-6px);
+    box-shadow: 0 15px 40px -10px rgba(124, 58, 237, 0.6);
+    background: var(--gradient-accent);
+  }
+}
+
+[data-theme="dark"] .button:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+
+
+/* Efectos siempre visibles en móviles para WhatsApp */
+@media (max-width: 768px) {
+  [data-theme="dark"] .btn-whatsapp img {
+    filter: brightness(1.2) drop-shadow(0 0 10px rgba(0, 230, 118, 0.6));
+    animation: whatsappGlow 2s infinite ease-in-out;
+  }
+  
+  [data-theme="dark"] .btn-whatsapp:before,
+  [data-theme="dark"] .btn-whatsapp:after {
+    background-color: #00ff7f;
+    animation-duration: 1.2s;
+  }
+}
+
+@keyframes whatsappGlow {
+  0%, 100% { 
+    filter: brightness(1.2) drop-shadow(0 0 10px rgba(0, 230, 118, 0.6));
+    transform: scale(1);
+  }
+  50% { 
+    filter: brightness(1.4) drop-shadow(0 0 15px rgba(0, 230, 118, 0.8));
+    transform: scale(1.05);
+  }
+}
+
+[data-theme="dark"] .btn-whatsapp:before,
+[data-theme="dark"] .btn-whatsapp:after {
+  background-color: #00e676;
+}
+
+/* Swiper mejorado */
+[data-theme="dark"] .swiper-pagination-bullet {
+  background: var(--text-tertiary);
+  opacity: 0.5;
+}
+
+[data-theme="dark"] .swiper-pagination-bullet-active {
+  background: var(--orange-primary);
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+}
+
+/* Estilos para modo oscuro en PC (aplicar hover permanente con naranja vibrante) */
+[data-theme="dark"] .question-item {
+  background: #f97316; /* Naranja vibrante del botón del chatbot */
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+[data-theme="dark"] .question-item.back {
+  color: #fff; /* Letras blancas para el botón "volver" en modo oscuro */
+}
+
+[data-theme="dark"] .chat-message.user {
+  color: #fff; /* Letras blancas para mensajes del usuario en modo oscuro */
+}
+
+/* Estilos para móviles en modo oscuro (mismo naranja vibrante) */
+@media (max-width: 768px) {
+  [data-theme="dark"] .question-item {
+    background: #f97316; /* Naranja vibrante del botón del chatbot */
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+  }
+
+  [data-theme="dark"] .question-item.back {
+    color: #fff; /* Letras blancas para el botón "volver" en modo oscuro */
+  }
+
+  [data-theme="dark"] .chat-message.user {
+    color: #fff; /* Letras blancas para mensajes del usuario en modo oscuro */
+  }
 }
