@@ -82,7 +82,7 @@ const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mess
 window.open(whatsappUrl, '_blank');
 });
 
-// carrusel de palnes
+// carrusel de planes
 const swiperPlanes = new Swiper('.testimonial-slider', {
     slidesPerView: 1,
     spaceBetween: 20,
