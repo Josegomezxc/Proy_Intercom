@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("cookies-choice", "rejected");
             banner.style.transform = "translateY(100%)";
             setTimeout(() => banner.style.display = "none", 500);
-            showNotification('Has rechazado las cookies opcionales.', 'info');
+            showNotification('Has rechazado las cookies.', 'info');
         });
 
         // Evento para el botón de cerrar banner
